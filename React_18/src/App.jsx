@@ -1,5 +1,6 @@
 import AutomaticBatchingContainer from './AutomaticBatching/AutomaticBatchingContainer'
 import FlushSync from './FlushSync/FlushSync'
+import UseTransition from './UseTransition/UseTransition'
 
 const App = () => <>
     <h1>React 18.0.2</h1>
@@ -10,6 +11,7 @@ const App = () => <>
     <h3>FlushSync</h3>
     <FlushSync />
     <hr/>
+    <UseTransition />
 </>
 
 export default App

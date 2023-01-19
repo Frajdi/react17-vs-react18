@@ -1,4 +1,5 @@
 import { useState, useTransition, useRef, useEffect } from "react";
+import UseTrasitionUI from "./UseTrasitionUI";
 
 const UseTransition = () => {
   const [isPending, startTransition] = useTransition();
@@ -27,14 +28,7 @@ const UseTransition = () => {
     });
   };
   return (
-    <>
-      <h3>UseTransition</h3>
-      <p>Count render: {renderCount.current}</p>
-      <input type="text" value={input} onChange={handleInputChange} />
-      {isPending ? "Loading..." : list.map((item, index) => (
-        <div key={index}>{item}</div>
-      ))}
-    </>
+    <UseTrasitionUI renderCount={renderCount} input={input} handleInputChange={handleInputChange} isPending={isPending} list={list}/>
   );
 };
 

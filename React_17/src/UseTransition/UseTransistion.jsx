@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from "react";
 import UseTransitionUI from "./UseTransitionUI";
 
 
-export const UseTransition = () => {
+const UseTransition = () => {
 
     const [input, setInput] = useState("")
     const [list, setList] = useState([]);
@@ -30,3 +30,5 @@ export const UseTransition = () => {
         <UseTransitionUI renderCount={renderCount} input={input} handleInputChange={handleInputChange} list={list}/>
     )
 }
+
+export default UseTransition;

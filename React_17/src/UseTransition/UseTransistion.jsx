@@ -15,7 +15,6 @@ const UseTransition = () => {
      renderCount.current = renderCount.current + 1 
     })
     
-  
     
     const handleInputChange = ({target: {value}}) => {
         setInput(value);

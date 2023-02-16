@@ -1,6 +1,7 @@
 import AutomaticBatchingContainer from "./AutomaticBatching/AutomaticBatchingContainer";
 import FlushSync from "./FlushSync/FlushSync";
 import UseTransition from "./UseTransition/UseTransition";
+import UseId from "./UseId/UseId";
 
 const Layout = () => {
   return (
@@ -12,6 +13,9 @@ const Layout = () => {
       <hr />
       <h3>FlushSync</h3>
       <FlushSync />
+      <hr/>
+      <h3>UseId</h3>
+      <UseId />
       <hr />
       <UseTransition />
     </>

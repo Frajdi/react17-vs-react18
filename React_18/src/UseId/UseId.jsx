@@ -5,9 +5,9 @@ const UseId = () => {
 
   return (
     <div>
-      <label htmlFor={`${id}-email`}>Email</label>
+      <label htmlFor={id}>Email</label>
       <br />
-      <input id={`${id}-email`} type="email" />
+      <input id={id} type="email" />
     </div>
   );
 };

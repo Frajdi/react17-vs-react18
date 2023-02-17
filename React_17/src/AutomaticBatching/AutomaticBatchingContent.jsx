@@ -1,7 +1,10 @@
+import  {ExtendedTypography} from '@vapor/react-extended/ExtendedTypography/ExtendedTypography'
+
+
 const AutomaticBatchingContent = ({ firstCount, secondCount }) => (
   <>
-    <div>First Count {firstCount} .</div>
-    <div>Second Count {secondCount} .</div>
+    <ExtendedTypography component="div" variant="bodyLarge">First Count {firstCount} .</ExtendedTypography>
+    <ExtendedTypography  component="div" variant="bodyLarge">Second Count {secondCount} .</ExtendedTypography>
   </>
 );
 

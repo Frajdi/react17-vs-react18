@@ -1,11 +1,25 @@
-const UseTransitionUI = ({renderCount, input, handleInputChange, list}) => 
-    <>
-    <h3>UseTransition (is not used)</h3>
-    <p>Rerender counting: {renderCount.current}</p>
-    <input type="text" value={input} onChange={handleInputChange}/>
+import ExtendedTypography from "@vapor/react-extended/ExtendedTypography";
+import { List, ListItem, ListItemText, TextField } from "@vapor/react-material";
+const UseTransitionUI = ({ renderCount, input, handleInputChange, list }) => (
+  <>
+    <ExtendedTypography
+      variant="titleMedium"
+      color="primary.interactiveDefault"
+    >
+      UseTransition (is not used)
+    </ExtendedTypography>
+    <ExtendedTypography component="div" variant="bodyLarge">
+      Rerender counting: {renderCount.current}
+    </ExtendedTypography>
+    <TextField value={input} onChange={handleInputChange} sx={{mt: 2}}/>
+    <List>
     {list.map((item, index) => (
-        <div key={index}>{item}</div>
+      <ListItem key={index}>
+        {item}
+      </ListItem>
     ))}
-</>
+    </List>
+  </>
+);
 
-export default UseTransitionUI
+export default UseTransitionUI;

@@ -1,4 +1,12 @@
-import Layout from "./Layout"
-const App = () => <Layout />
+import { ThemeProvider } from "@vapor/react-material/styles";
 
-export default App
+import Layout from "./Layout";
+
+
+const App = () => (
+  <ThemeProvider>
+    <Layout />
+  </ThemeProvider>
+);
+
+export default App;

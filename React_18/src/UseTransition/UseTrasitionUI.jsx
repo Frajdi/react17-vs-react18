@@ -1,12 +1,26 @@
+import ExtendedTypography from "@vapor/react-extended/ExtendedTypography";
 
-const UseTrasitionUI = ({renderCount, input, handleInputChange, isPending, list}) => 
-    <>
-    <h3>UseTransition</h3>
-      <p>Count render: {renderCount.current}</p>
-      <input type="text" value={input} onChange={handleInputChange} />
-      {isPending ? "Loading..." : list.map((item, index) => (
-        <div key={index}>{item}</div>
-      ))}
-    </>
+const UseTrasitionUI = ({
+  renderCount,
+  input,
+  handleInputChange,
+  isPending,
+  list,
+}) => (
+  <>
+    <ExtendedTypography
+      variant="titleMedium"
+      color="primary.interactiveDefault"
+    >
+      UseTransition (is not used)
+    </ExtendedTypography>
 
-export default UseTrasitionUI
+    <p>Count render: {renderCount.current}</p>
+    <input type="text" value={input} onChange={handleInputChange} />
+    {isPending
+      ? "Loading..."
+      : list.map((item, index) => <div key={index}>{item}</div>)}
+  </>
+);
+
+export default UseTrasitionUI;

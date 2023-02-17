@@ -9,6 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vapor/react": "^0.0.21",
+    "@vapor/react-custom": "^0.3.3",
+    "@vapor/react-extended": "^0.1.6",
+    "@vapor/react-material": "^0.8.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

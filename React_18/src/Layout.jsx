@@ -2,24 +2,57 @@ import AutomaticBatchingContainer from "./AutomaticBatching/AutomaticBatchingCon
 import FlushSync from "./FlushSync/FlushSync";
 import UseTransition from "./UseTransition/UseTransition";
 import UseId from "./UseId/UseId";
-
+import { VaporPage } from "@vapor/react-custom";
+import { ExtendedTypography } from "@vapor/react-extended";
+import VaporHeaderBar from "@vapor/react-custom/VaporHeaderBar";
+import Grid from "@vapor/react-material/Grid";
+import { Card } from "@vapor/react-material";
 const Layout = () => {
   return (
-    <>
-      <h1>React 18.0.2</h1>
-      <hr />
-      <h3>Batching</h3>
-      <AutomaticBatchingContainer />
-      <hr />
-      <h3>FlushSync</h3>
-      <FlushSync />
-      <hr/>
-      <h3>UseId</h3>
-      <UseId />
-      <hr />
-      <UseTransition />
-    </>
+    <VaporPage>
+      {" "}
+      <VaporHeaderBar title="React 18.0.2" divider />
+      <Grid container spacing={2} padding={2}>
+        <Grid item xs={6}>
+          <Card sx={{ minHeight: 150, p: 3 }}>
+            <ExtendedTypography
+              variant="titleMedium"
+              color="primary.interactiveDefault"
+            >
+              Batching
+            </ExtendedTypography>{" "}
+            <AutomaticBatchingContainer />
+          </Card>
+        </Grid>
+        <Grid item xs={6}>
+          <Card sx={{ minHeight: 150, p: 3 }}>
+            <ExtendedTypography
+              variant="titleMedium"
+              color="primary.interactiveDefault"
+            >
+              FlushSync
+            </ExtendedTypography>
+            <FlushSync />
+          </Card>
+        </Grid>
+        <Grid item xs={6}>
+          <Card sx={{ minHeight: 150, p: 3 }}>
+            <ExtendedTypography
+              variant="titleMedium"
+              color="primary.interactiveDefault"
+            >
+              UseID
+            </ExtendedTypography>
+            <UseId />
+          </Card>
+        </Grid>
+        <Grid item xs={6}>
+          <Card sx={{ minHeight: 150, p: 3 }}>
+            <UseTransition />{" "}
+          </Card>
+        </Grid>
+      </Grid>
+    </VaporPage>
   );
 };
-
 export default Layout;

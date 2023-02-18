@@ -12,7 +12,7 @@ const UseTransitionUI = ({ renderCount, input, handleInputChange, list }) => (
       Rerender counting: {renderCount.current}
     </ExtendedTypography>
     <TextField value={input} onChange={handleInputChange} sx={{mt: 2}}/>
-    <List>
+    <List style={{overflowY: 'scroll', maxHeight: 150}}>
     {list.map((item, index) => (
       <ListItem key={index}>
         {item}

@@ -1,4 +1,6 @@
 import AutomaticBatchingContent from './AutomaticBatchingContent'
+import { ExtendedTypography } from '@vapor/react-extended/ExtendedTypography/ExtendedTypography'
+import Button from '@vapor/react-material/Button'
 
 const AutomaticBatchingContainerUI = ({firstCount, secondCount, stateUpdatesCount, rerenders, firstCountHandler, secondCountHandler, bothCountersHandler}) => {
   return (
@@ -7,17 +9,17 @@ const AutomaticBatchingContainerUI = ({firstCount, secondCount, stateUpdatesCoun
       firstCount={firstCount}
       secondCount={secondCount}
     />
-    <div>State update count = {stateUpdatesCount.current} </div>
-    <div>Amount of rerenders = {rerenders.current}</div>
-    <button onClick={() => firstCountHandler()}>
+    <ExtendedTypography variant='bodyLarge'>State update count = {stateUpdatesCount.current} </ExtendedTypography>
+    <ExtendedTypography>Amount of rerenders = {rerenders.current}</ExtendedTypography>
+    <Button variant='outlined' onClick={() => firstCountHandler()}>
       Add first counter
-    </button>{' '}
-    <button onClick={() => secondCountHandler()}>
+    </Button>{' '}
+    <Button variant='outlined' onClick={() => secondCountHandler()}>
       Add second counter
-    </button>{' '}
-    <button onClick={() => bothCountersHandler()}>
+    </Button>{' '}
+    <Button variant='outlined' onClick={() => bothCountersHandler()}>
       Add both counters
-    </button>
+    </Button>
   </>
   )
 }

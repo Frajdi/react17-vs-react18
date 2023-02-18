@@ -7,7 +7,7 @@ const FlushSync = () => {
 //   { "name": "frajdi", "surname": "malaj", "age": "21" }
 
   const [value, setValue] = useState()
-  const [inputColor, setInputColor] = useState('black')
+  const [error, setError] = useState(false)
   const renderCount = useRef(0)
 
   useEffect(() => {
@@ -20,18 +20,18 @@ const FlushSync = () => {
   const handleBlur = (event) => {
     try {
         JSON.parse(event.target.value)
-        flushSync(() => setInputColor('blue'))
+        flushSync(() => setError(false))
         setValue(event.target.value)
         
     } catch (error) {
-        flushSync(setInputColor('red'))
+        flushSync(setError(true))
         setValue(error.message)
     }
   } 
 
   return (
     <>
-      <FlushSyncUI renderCount={renderCount} inputColor={inputColor} handleBlur={handleBlur} value={value}/>
+      <FlushSyncUI renderCount={renderCount} error={error} handleBlur={handleBlur} value={value}/>
     </>
   );
 };

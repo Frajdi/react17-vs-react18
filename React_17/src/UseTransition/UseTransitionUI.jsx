@@ -1,5 +1,8 @@
 import ExtendedTypography from "@vapor/react-extended/ExtendedTypography";
-import { List, ListItem, ListItemText, TextField } from "@vapor/react-material";
+import List  from "@vapor/react-material/List";
+import ListItem from "@vapor/react-material/ListItem";
+import TextField from "@vapor/react-material/TextField";
+
 const UseTransitionUI = ({ renderCount, input, handleInputChange, list }) => (
   <>
     <ExtendedTypography

@@ -7,7 +7,7 @@ const UseTransition = () => {
   const [list, setList] = useState([]);
   const renderCount = useRef(0)
 
-  const List_size = 20000;
+  const List_size = 10000;
 
 
   useEffect(() => {

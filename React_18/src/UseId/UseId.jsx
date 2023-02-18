@@ -1,16 +1,23 @@
 import { useId } from "react";
+import TextField from '@vapor/react-material/TextField'
+import Stack from '@vapor/react-material/Stack';
 
 const UseId = () => {
-  const id = useId();
+  const emailId = useId();
+  const passwordId = useId();
 
-  console.log(id);
 
   return (
-    <div>
-      <label htmlFor={id}>Email</label>
-      <br />
-      <input id={id} type="email" />
-    </div>
+    <>
+    <Stack direction='row' spacing={2} style={{marginTop: "18px"}}>
+      <label style={{marginTop: '10px'}} htmlFor={emailId}>Email</label>
+      <TextField variant="standard" id={emailId} type="email" />
+    </Stack>
+    <Stack direction='row' spacing={2} style={{marginTop: "18px"}}>
+      <label style={{marginTop: '10px'}} htmlFor={passwordId}>Password</label>
+      <TextField variant="standard" id={passwordId} type="password" />
+    </Stack> 
+    </>
   );
 };
 

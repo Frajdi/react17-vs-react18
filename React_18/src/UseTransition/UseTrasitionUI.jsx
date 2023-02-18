@@ -1,4 +1,7 @@
 import ExtendedTypography from "@vapor/react-extended/ExtendedTypography";
+import List  from "@vapor/react-material/List";
+import ListItem from "@vapor/react-material/ListItem";
+import TextField from "@vapor/react-material/TextField";
 
 const UseTrasitionUI = ({
   renderCount,
@@ -15,11 +18,17 @@ const UseTrasitionUI = ({
       UseTransition (is not used)
     </ExtendedTypography>
 
-    <p>Count render: {renderCount.current}</p>
-    <input type="text" value={input} onChange={handleInputChange} />
+    <ExtendedTypography>Count render: {renderCount.current}</ExtendedTypography>
+    <TextField type="text" value={input} onChange={handleInputChange} />
     {isPending
       ? "Loading..."
-      : list.map((item, index) => <div key={index}>{item}</div>)}
+      : <List style={{overflowY: 'scroll', maxHeight: 150}}>
+      {list.map((item, index) => (
+        <ListItem key={index}>
+          {item}
+        </ListItem>
+      ))}
+      </List>}
   </>
 );
 

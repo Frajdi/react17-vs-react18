@@ -14,7 +14,7 @@ const Layout = () => {
       <VaporHeaderBar title="React 18.0.2" divider />
       <Grid container spacing={2} padding={2}>
         <Grid item xs={6}>
-          <Card sx={{ minHeight: 150, p: 3 }}>
+          <Card sx={{ p: 3 , height: 200}}>
             <ExtendedTypography
               variant="titleMedium"
               color="primary.interactiveDefault"
@@ -25,7 +25,7 @@ const Layout = () => {
           </Card>
         </Grid>
         <Grid item xs={6}>
-          <Card sx={{ minHeight: 150, p: 3 }}>
+          <Card sx={{ p: 3 , height: 200}}>
             <ExtendedTypography
               variant="titleMedium"
               color="primary.interactiveDefault"
@@ -36,7 +36,7 @@ const Layout = () => {
           </Card>
         </Grid>
         <Grid item xs={6}>
-          <Card sx={{ minHeight: 150, p: 3 }}>
+          <Card sx={{ p: 3 , height: 200}}>
             <ExtendedTypography
               variant="titleMedium"
               color="primary.interactiveDefault"
@@ -47,7 +47,7 @@ const Layout = () => {
           </Card>
         </Grid>
         <Grid item xs={6}>
-          <Card sx={{ minHeight: 150, p: 3 }}>
+          <Card sx={{ p: 3 , overflow: "hidden", height: 200}}>
             <UseTransition />{" "}
           </Card>
         </Grid>

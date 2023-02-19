@@ -1,37 +1,66 @@
-import { useState, useRef, useEffect } from "react";
-import { flushSync } from "react-dom";
-import FlushSyncUI from "./FlushSyncUI";
+import { useState, useEffect } from "react";
+import ExtendedTypography from "@vapor/react-extended/ExtendedTypography";
+import Stack from "@vapor/react-material/Stack";
+import Button from "@vapor/react-material/Button";
 
 const FlushSync = () => {
-
-//   { "name": "frajdi", "surname": "malaj", "age": "21" }
-
-  const [value, setValue] = useState()
-  const [inputColor, setInputColor] = useState(false)
-  const renderCount = useRef(0)
+  const [isPrinting, setIsPrinting] = useState(false);
 
   useEffect(() => {
-   renderCount.current = renderCount.current + 1 
-  })
-  
-
-  //As we see down here when we use flush sync we can sepparate the default batching inside the 
-  //handleBlur so we set the first state that will be insinde the flushSync function and the the others that are outside.
-  const handleBlur = (event) => {
-    try {
-        JSON.parse(event.target.value)
-        setInputColor(false)
-        setValue(event.target.value)
-        
-    } catch (error) {
-        setInputColor(true)
-        setValue(error.message)
+    function handleBeforePrint() {
+        setIsPrinting(true)
     }
-  } 
+
+    function handleAfterPrint() {
+      setIsPrinting(false);
+    }
+
+    window.addEventListener("beforeprint", handleBeforePrint);
+    window.addEventListener("afterprint", handleAfterPrint);
+    return () => {
+      window.removeEventListener("beforeprint", handleBeforePrint);
+      window.removeEventListener("afterprint", handleAfterPrint);
+    };
+  }, []);
 
   return (
     <>
-      <FlushSyncUI renderCount={renderCount} inputColor={inputColor} handleBlur={handleBlur} value={value}/>
+      <br />
+      <Stack direction="column">
+        <ExtendedTypography variant="titleLarge">Invoice</ExtendedTypography>
+        <Stack direction="row" justifyContent="space-between">
+          <ExtendedTypography variant="body">Costumer UUID:</ExtendedTypography>
+          {!isPrinting ? (
+            <ExtendedTypography variant="body" sx={{ color: "grey" }}>
+              633b8c54-d5e7-46cb-8edf-c6eeffeb4e79
+            </ExtendedTypography>
+          ) : null}
+        </Stack>
+        <ExtendedTypography variant="bodyLarge">Name : Josh Parker</ExtendedTypography>
+        <Stack direction="row" justifyContent="space-between">
+          <Stack direction="column">
+            <ExtendedTypography variant="bodyLarge">Amount Of Products: 3</ExtendedTypography>
+            <ExtendedTypography variant="bodyLarge">VAT : 30$</ExtendedTypography>
+            <ExtendedTypography variant="bodyLarge">
+              Total Price To Pay : 200 $
+            </ExtendedTypography>
+            <Button variant="contained" sx={{mt: 1}} onClick={() => window.print()}>
+              Print
+            </Button>
+          </Stack>
+          {!isPrinting ? (
+            <img
+              height={70}
+              style={{ marginRight: "2rem" }}
+              src="https://w7.pngwing.com/pngs/1004/394/png-transparent-barcode-qr-code-data-matrix-international-article-number-qr-codes-miscellaneous-label-text.png"
+            ></img>
+          ) : null}
+        </Stack>
+      </Stack>
+      {/* <h1>isPrinting: {isPrinting ? 'yes' : 'no'}</h1>
+      <button onClick={() => window.print()}>
+        Print
+      </button> */}
     </>
   );
 };

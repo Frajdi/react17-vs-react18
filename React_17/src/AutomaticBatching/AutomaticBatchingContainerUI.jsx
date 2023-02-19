@@ -1,25 +1,18 @@
-import AutomaticBatchingContent from './AutomaticBatchingContent'
 import { ExtendedTypography } from '@vapor/react-extended/ExtendedTypography/ExtendedTypography'
-import Button from '@vapor/react-material/Button'
+import TextField from '@vapor/react-material/TextField'
 
-const AutomaticBatchingContainerUI = ({firstCount, secondCount, stateUpdatesCount, rerenders, firstCountHandler, secondCountHandler, bothCountersHandler}) => {
+const AutomaticBatchingContainerUI = ({renderCount, error, handleBlur, value}) => {
   return (
     <>
-    <AutomaticBatchingContent
-      firstCount={firstCount}
-      secondCount={secondCount}
+    <ExtendedTypography component="div" variant="bodyLarge">Render Count = {renderCount.current}</ExtendedTypography>
+    <TextField
+      sx={{mt: 2}}
+      error={error}
+      type="text"
+      onBlur={(event) => handleBlur(event)}
+      placeholder='Json Validator'
+      helperText={value}
     />
-    <ExtendedTypography variant='bodyLarge'>State update count = {stateUpdatesCount.current} </ExtendedTypography>
-    <ExtendedTypography>Amount of rerenders = {rerenders.current}</ExtendedTypography>
-    <Button variant='outlined' onClick={() => firstCountHandler()}>
-      Add first counter
-    </Button>{' '}
-    <Button variant='outlined' onClick={() => secondCountHandler()}>
-      Add second counter
-    </Button>{' '}
-    <Button variant='outlined' onClick={() => bothCountersHandler()}>
-      Add both counters
-    </Button>
   </>
   )
 }

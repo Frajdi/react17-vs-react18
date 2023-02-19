@@ -3,8 +3,12 @@ import TextField from '@vapor/react-material/TextField'
 import Stack from '@vapor/react-material/Stack';
 
 const UseId = () => {
-  const emailId = useId();
-  const passwordId = useId();
+
+  const emailId = useId(); // This will return a unique id for ex: :r1:
+  const passwordId = useId(); // This will return a unique id for ex: :r2:
+
+  console.log(emailId);
+  console.log(passwordId);
 
 
   return (
